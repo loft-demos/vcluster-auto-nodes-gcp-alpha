@@ -65,8 +65,8 @@ module "instance_template" {
   disk_size_gb = 100
   disk_type    = "pd-standard"
 
-  service_account = {
-    email  = local.service_account_email
+  service_account {
+    email  = "${data.google_project.project.number}-compute@developer.gserviceaccount.com"
     scopes = ["cloud-platform"]
   }
 
