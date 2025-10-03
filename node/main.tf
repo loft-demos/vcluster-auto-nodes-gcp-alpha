@@ -6,7 +6,7 @@ provider "google" {
 module "validation" {
   source = "./validation"
 
-  project = nonsensitive(var.vcluster.nodeType.spec.properties["project"])
+  project = nonsensitive(var.vcluster.properties["project"]) #nonsensitive(var.vcluster.nodeType.spec.properties["project"])
   region  = nonsensitive(var.vcluster.nodeType.spec.properties["region"])
   zone    = try(nonsensitive(var.vcluster.nodeType.spec.properties["zone"]), "")
 }
